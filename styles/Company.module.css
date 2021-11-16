@@ -1,0 +1,20 @@
+.company_container {
+    margin: 50px 0;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 5%);
+}
+.company_container h1 {
+    font-size: 24px;
+    color: #54618E;
+    font-weight: normal;
+}
+.company_container h3 {
+    font-size: 20px;
+    color: #497539;
+    font-weight: normal;
+}
+.company_container span {
+    display:block;
+    margin-top: 10px;
+}
