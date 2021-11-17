@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container img  {
+    width: 100px;
+    margin: 50px 0;
+}
+.container h1 {
+    color: #355881;
+}
+.container input {
+    display: block;
+    display: block;
+    padding: 13px 100px;
+    border-radius: 10px;
+    border: 1px solid #355881;
+    padding-left: 20px;
+    margin: 20px auto;
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    -ms-border-radius: 10;
+    -o-border-radius: 10;
+}
+.container label {
+    font-size: 20px;
+    font-weight: 500;
+}
+.container input[type="submit"] {
+    padding: 10px 125px;
+    background: #497539;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #497539;
+    border-radius: 5px;
+    margin: 20px auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    cursor: pointer;
+}
+.container a {
+    padding: 10px 109px;
+    background: #355881;
+    color: #fff;
+    border: 1px solid #355881;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.go_to {
+    padding: 10px 113px !important;
+}
+.go_to2 {
+    padding: 10px 109px !important;
+}
