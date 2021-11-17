@@ -1,23 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../../src/Header'
 import styles from '../../styles/Company.module.css'
+import { useRouter } from 'next/router'
 
 const Company = () => {
+    const [companies, setCompanies] = useState();
+    const router = useRouter()
+    const { name } = router.query
+
+    useEffect(async () => {
+        const data = await fetch(`http://localhost:9101/api/v1/company/${name}`).then(res => res.json())
+        setCompanies(data)
+    }, [name])
     return (
         <>
         <Header />
         <div className={styles.company_container}>
-            <img src="/empresa1.png" />
-            <h1>YVY é o novo jeito de limpar a casa!</h1>
-            <h3>Sobre a YVY</h3>
-            <p>A sabedoria Guarani nos conta de uma terra sem males, onde há comunhão entre o homem e a natureza. É nesse lugar que nos inspiramos para criar YVY, uma nova forma de limpar a casa, mais simples, com a máxima eficiência e o mínimo de impacto no planeta. Uma resposta dos novos tempos para um modelo que se esgotou.</p>
+            <img src={`/${companies?.fantasy_name?.toLowerCase()}.png`} />
+            <h1>Sobre a {companies?.fantasy_name}</h1>
+            <p>{companies?.description}</p>
             <h3>Onde comprar?</h3>
             <span>Website</span>
             <h3>Informações</h3>
-            <span>CNPJ: 0001</span>
+            <span>CNPJ: {companies?.cnpj}</span>
             <h3>Contato</h3>
-            <span>Email: asd@asd.com</span>
-            <span>Celular: 11942092222</span>
+            <span>Email: {companies?.email}</span>
+            <span>Celular: {companies?.phone} - {companies?.contact_name}</span>
         </div>
         </>
     )

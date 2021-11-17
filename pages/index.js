@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 import Header from '../src/Header'
 import Slider from "react-slick";
@@ -6,6 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Brands from '../src/Brands';
 
 export default function Home() {
+  const [companies, setCompanies] = useState([]);
+  const [categories, setCategories] = useState([]);
   const settings = {
     dots: true,
     infinite: true,
@@ -14,6 +17,15 @@ export default function Home() {
     slidesToShow: 1,
     slidesToScroll: 1
   };
+  // const cookieData = document?.cookie
+  useEffect(async () => {
+    const allcompanies = await fetch(`http://localhost:9101/api/v1/company`).then(res => res.json())
+    setCompanies(allcompanies)
+  }, [])
+  useEffect(async () => {
+    const allCategories = await fetch(`http://localhost:9101/api/v1/company/categories`).then(res => res.json())
+    setCategories(allCategories)
+  })
   return (
     <div className={styles.container}>
       <Header />
@@ -31,19 +43,13 @@ export default function Home() {
       <div className={styles.alternative_bg}>
           <h1>Categorias</h1>
           <div className={styles.brand}>
-              <Brands name={"Limpeza"} image={"/brand1.png"} isBrand={false}/>
-              <Brands name={"Alimento"} image={"/brand2.png"} isBrand={false}/>
-              <Brands name={"Higiene"} image={"/brand3.png"} isBrand={false}/>
-              <Brands name={"Energia"} image={"/brand4.png"} isBrand={false}/>
-
-
+          {categories.map((category, index) => (<Brands name={category} id={index + 1} image={`${category.toLowerCase()}.png`} isBrand={false}/>))}
           </div>
       </div>
       <div className={styles.alternative_bg}>
           <h1>Empresas</h1>
           <div className={styles.brand}>
-              <Brands name={"Positiv.a"} image={"/empresa2.png"} isBrand={true}/>
-              <Brands name={"Yvy"} image={"/empresa1.png"} isBrand={true}/>
+          {companies.map((company, index) => (<Brands name={company?.fantasy_name} id={index + 1} image={`${company?.fantasy_name.toLowerCase()}.png`} isBrand={true}/>))}
           </div>
       </div>
       <div className={styles.alternative_bg}>

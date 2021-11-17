@@ -24,6 +24,7 @@ const Login = () => {
         const response = await dataApi.json()
         if(response.token){
             document.cookie = `token=${response.token}, expires=${response.expire_in}`
+            document.cookie = `usuario =${email}`
             window.location.href = "/"
         } else {
             setError(true)
