@@ -31,10 +31,10 @@ export default function Home() {
       <div className={styles.alternative_bg}>
           <h1>Categorias</h1>
           <div className={styles.brand}>
-              <Brands name={"Limpeza"} image={"/brand1.png"}/>
-              <Brands name={"Alimento"} image={"/brand2.png"}/>
-              <Brands name={"Higiene"} image={"/brand3.png"}/>
-              <Brands name={"Energia"} image={"/brand4.png"}/>
+              <Brands name={"Limpeza"} image={"/brand1.png"} isBrand={false}/>
+              <Brands name={"Alimento"} image={"/brand2.png"} isBrand={false}/>
+              <Brands name={"Higiene"} image={"/brand3.png"} isBrand={false}/>
+              <Brands name={"Energia"} image={"/brand4.png"} isBrand={false}/>
 
 
           </div>
@@ -42,8 +42,8 @@ export default function Home() {
       <div className={styles.alternative_bg}>
           <h1>Empresas</h1>
           <div className={styles.brand}>
-              <Brands name={"Positiv.a"} image={"/empresa2.png"} isBrand={false}/>
-              <Brands name={"Yvy"} image={"/empresa1.png"} isBrand={false}/>
+              <Brands name={"Positiv.a"} image={"/empresa2.png"} isBrand={true}/>
+              <Brands name={"Yvy"} image={"/empresa1.png"} isBrand={true}/>
           </div>
       </div>
       <div className={styles.alternative_bg}>

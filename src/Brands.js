@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Brands = ({image, name, isBrand}) => {
     return (
         <div>
-            <Link  href={isBrand ? `/brands/${name.toLowerCase()}` : `/empresa/${name}`}>
+            <Link  href={!isBrand ? `/brands/${name.toLowerCase()}` : `/empresa/${name}`}>
                 <a>
                     <img src={image} alt={name} />
                     <p>{name}</p>
